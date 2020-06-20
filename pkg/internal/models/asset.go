@@ -5,6 +5,7 @@ import "time"
 type FixedPoint int // Represents the actual value multiplied by 100
 
 type AssetInfo struct {
+	Year                   int         	`json:"year"`
 	TipReg                 int         	`json:"registration_type"`
 	DataCollectionDate     time.Time   	`json:"data"`
 	BDICode                int         	`json:"bdi_code"`

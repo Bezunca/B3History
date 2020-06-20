@@ -8,7 +8,7 @@ import (
 	"github.com/Bezunca/B3History/pkg/internal/models"
 )
 
-func parseContentLine(rawLine string) (*models.AssetInfo, error) {
+func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 	tipReg, err := strconv.ParseInt(rawLine[:2], 10, 64)
 	if err != nil {
 		return nil, err
@@ -90,6 +90,7 @@ func parseContentLine(rawLine string) (*models.AssetInfo, error) {
 		return nil, err
 	}
 	return &models.AssetInfo{
+		Year: 					year,
 		TipReg:                 int(tipReg),
 		DataCollectionDate:     date,
 		BDICode:                int(bdiCode),
@@ -119,10 +120,10 @@ func parseContentLine(rawLine string) (*models.AssetInfo, error) {
 	}, nil
 }
 
-func ParseHistoricData(rawData []string) ([]models.AssetInfo, error) {
+func ParseHistoricData(rawData []string, year int) ([]models.AssetInfo, error) {
 	contentList := make([]models.AssetInfo, len(rawData)-3)
 	for i, rawLine := range rawData[1:len(rawData)-2] {
-		slice, err := parseContentLine(rawLine)
+		slice, err := parseContentLine(rawLine, year)
 		if err != nil{
 			return nil, err
 		}
@@ -131,9 +132,9 @@ func ParseHistoricData(rawData []string) ([]models.AssetInfo, error) {
 	return contentList, nil
 }
 
-func ParseHistoricDataFromBytes(data []byte) ([]models.AssetInfo, error){
+func ParseHistoricDataFromBytes(data []byte, year int) ([]models.AssetInfo, error){
 	segmentedLines := strings.Split(string(data), "\n")
-	histData, err := ParseHistoricData(segmentedLines)
+	histData, err := ParseHistoricData(segmentedLines, year)
 	if err != nil{
 		return nil, err
 	}

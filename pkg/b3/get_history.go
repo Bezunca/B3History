@@ -16,7 +16,7 @@ func GetHistory(year uint) ([]models.AssetInfo, error){
 	if err != nil {
 		return nil, err
 	}
-	data, err := parser.ParseHistoricDataFromBytes(encodedContent)
+	data, err := parser.ParseHistoricDataFromBytes(encodedContent, int(year))
 	if err != nil {
 		return nil, err
 	}
