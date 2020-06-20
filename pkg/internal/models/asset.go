@@ -6,30 +6,30 @@ type FixedPoint int // Represents the actual value multiplied by 100
 
 type AssetInfo struct {
 	Year                   int         	`json:"year"`
-	TipReg                 int         	`json:"registration_type"`
+	TipReg                 int         	`json:"-"`
 	DataCollectionDate     time.Time   	`json:"data"`
-	BDICode                int         	`json:"bdi_code"`
+	BDICode                int         	`json:"-"`
 	Ticker                 string		`json:"ticker"`
 	MarketType             int			`json:"market_type"`
 	CompanyName            string		`json:"shot_company_name"`
 	SecurityType           string		`json:"security_type"`
 	FutureMarketExpiration string       `json:" future_market_expiration"` // Need to check this against an example that actually has a value
 	Currency               string		`json:"currency"`
-	PriceOpen              FixedPoint	`json:"price_open"`
-	PriceMax               FixedPoint	`json:"price_max"`
-	PriceMin               FixedPoint	`json:"price_min"`
-	PriceMean              FixedPoint	`json:"price_mean"`
+	PriceOpen              FixedPoint	`json:"-"`
+	PriceMax               FixedPoint	`json:"-"`
+	PriceMin               FixedPoint	`json:"-"`
+	PriceMean              FixedPoint	`json:"-"`
 	PriceClose             FixedPoint	`json:"price_close"`
-	PriceBid               FixedPoint	`json:"price_bid"`
-	PriceAsk               FixedPoint	`json:"price_ask"`
-	TotalTrades            int			`json:"total_trades"`
-	TotalQuantity          int			`json:"total_quantity"`
+	PriceBid               FixedPoint	`json:"-"`
+	PriceAsk               FixedPoint	`json:"-"`
+	TotalTrades            int			`json:"-"`
+	TotalQuantity          int			`json:"-"`
 	TotalVolume            FixedPoint	`json:"total_volume"`
 	PreExe                 FixedPoint   `json:"execution_price"` // Needs further investigation
-	IndOpc                 int        	`json:"options_indicator"`	// Needs further investigation
+	IndOpc                 int        	`json:"-"`	// Needs further investigation
 	ExpirationDate         time.Time	`json:"expiration_date"`
-	FatCot                 int 			`json:"amount_factor"` // Needs further investigation
-	PtoExe                 int 			`json:"execution_points"` // Needs further investigation
-	ISINCode               string		`json:"isin_code"`
-	DistributionNumber     int			`json:"distribution_number"`
+	FatCot                 int 			`json:"-"` // Needs further investigation
+	PtoExe                 int 			`json:"-"` // Needs further investigation
+	ISINCode               string		`json:"-"`
+	DistributionNumber     int			`json:"-"`
 }
