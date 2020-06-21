@@ -77,6 +77,8 @@ func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 	if err != nil {
 		return nil, err
 	}
+	loc, _ := time.LoadLocation("America/Sao_Paulo")
+	expirationDate = expirationDate.In(loc)
 	fatCot, err := strconv.ParseInt(rawLine[210:210+7], 10, 64)
 	if err != nil {
 		return nil, err
