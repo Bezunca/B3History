@@ -7,7 +7,7 @@ type FixedPoint int // Represents the actual value multiplied by 100
 type AssetInfo struct {
 	Year                   int        `json:"year" bson:"year"`
 	TipReg                 int        `json:"-" bson:"-" `
-	DataCollectionDate     time.Time  `json:"data" bson:"data"`
+	DataCollectionDate     time.Time  `json:"data" bson:"date"`
 	BDICode                int        `json:"-" bson:"-"`
 	Ticker                 string     `json:"ticker" bson:"ticker"`
 	MarketType             int        `json:"market_type" bson:"market_type"`
