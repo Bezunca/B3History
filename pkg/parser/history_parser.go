@@ -14,7 +14,7 @@ func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	date, err := time.Parse("20060102", rawLine[2:2+8])
+	date, err := time.Parse("20060102 -0700", fmt.Sprintf("%s -0300", rawLine[2:2+8]))
 	if err != nil {
 		return nil, err
 	}
