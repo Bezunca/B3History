@@ -74,7 +74,7 @@ func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	expirationDate, err := time.Parse("20060102 -0700", fmt.Sprintf("%s -3000", rawLine[202:202+8]))
+	expirationDate, err := time.Parse("20060102 -0700", fmt.Sprintf("%s -0300", rawLine[202:202+8]))
 	if err != nil {
 		return nil, err
 	}
