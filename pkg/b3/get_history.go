@@ -2,8 +2,8 @@ package b3
 
 import (
 	"github.com/Bezunca/B3History/pkg/http"
-	"github.com/Bezunca/B3History/pkg/internal/models"
 	"github.com/Bezunca/B3History/pkg/internal/parser"
+	"github.com/Bezunca/B3History/pkg/models"
 	"github.com/Bezunca/ZipInMemory/pkg/zip"
 )
 

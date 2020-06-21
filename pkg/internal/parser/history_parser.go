@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Bezunca/B3History/pkg/internal/models"
+	"github.com/Bezunca/B3History/pkg/models"
 )
 
 func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
@@ -90,7 +90,7 @@ func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 		return nil, err
 	}
 	return &models.AssetInfo{
-		Year: 					year,
+		Year:                   year,
 		TipReg:                 int(tipReg),
 		DataCollectionDate:     date,
 		BDICode:                int(bdiCode),
