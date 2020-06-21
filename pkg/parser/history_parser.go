@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -73,12 +74,10 @@ func parseContentLine(rawLine string, year int) (*models.AssetInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	expirationDate, err := time.Parse("20060102", rawLine[202:202+8])
+	expirationDate, err := time.Parse("20060102 -0700", fmt.Sprintf("%s -3000", rawLine[202:202+8]))
 	if err != nil {
 		return nil, err
 	}
-	loc, _ := time.LoadLocation("America/Sao_Paulo")
-	expirationDate = expirationDate.In(loc)
 	fatCot, err := strconv.ParseInt(rawLine[210:210+7], 10, 64)
 	if err != nil {
 		return nil, err
